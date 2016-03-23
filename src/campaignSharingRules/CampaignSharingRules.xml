@@ -1,0 +1,8 @@
+<campaignSharingRules>
+
+<!-- this is the Campaign Sharing Rules xml-->
+<name>Campaign Sharing Rules</name>
+<timeout>30</timeout>
+<ip>0.0.0.0</ip>
+<dns>10.0.0.1</dns>
+</campaignSharingRules>
