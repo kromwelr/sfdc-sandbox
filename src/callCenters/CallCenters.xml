@@ -1,0 +1,7 @@
+<callCenters>
+
+<!-- this is the Call Centers xml-->
+<name>Call Centers</name>
+<timeout>30</timeout>
+
+</callCenters>
