@@ -1,0 +1,8 @@
+<caseSharingRules>
+
+<!-- this is the Case Sharing Rules xml-->
+<name>Case Sharing Rules</name>
+<timeout>30</timeout>
+<ip>0.0.0.0</ip>
+<dns>10.0.0.1</dns>
+</caseSharingRules>
