@@ -1,0 +1,455 @@
+<!--@History: D-2339 03/21/2015 VPernicia -->
+<!--@History: D-3005  05/25/2015 Jason A. - Reconstructed the entire component to copy format from enlgish template-->
+<!--@History: UD 2421, 2422, 2423, 2424, 2426, 2463, 2480  08/25/2015 ANavarro K. Tan. - Reconstructed the entire component to change font-size-->
+<!--@History: UD-2872 9/18/2015 Alyana Navarro -->
+
+<apex:component >
+<apex:attribute name="RecordAccountNumber" type="String" description="TODO: Describe me"/>
+<apex:attribute name="Break" type="String" description="TODO: Describe me"/>
+<apex:attribute name="FirstPageonly" type="boolean" description="TODO: Describe me"/>
+<apex:attribute name="Language" type="String" description="TODO: Describe me"/>
+<apex:attribute required="true"  type="string" name="type" description="specify header and footer type" />
+
+<apex:stylesheet value="{!$Resource.MagazineRenewalLetterStyle}"/> 
+
+
+
+    <div class="{!type}" style="margin-bottom:1px;">
+        
+        <apex:outputPanel rendered="{!if(Language=='english',true,false)}">
+            
+            <apex:outputPanel rendered="{!if(FirstPageonly==true,true,false)}">
+                <table width="100%" border="0" style="font-size:10pt; font-name:Arial" cellspacing="0">
+                
+                
+                    <tr><td>&nbsp;</td></tr>
+                
+                    <tr>
+                        <td><b>Yes, I wish to renew my subscription/s for another year. (Please tick the above)</b></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font>  Full payment at S$______________________.</td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td><b><u>Payment Mode</u> (please tick where applicable)</b></td>
+                    </tr>
+                    
+                    <!-- tr><td>&nbsp;</td></tr-->
+    
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font> Credit Card Payment (Please tick where applicable): </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;<font style="font-family: Arial Unicode MS;"> &#9744;</font> VISA             &nbsp;&nbsp;&nbsp;&nbsp;      <font style="font-family: Arial Unicode MS;"> &#9744;</font> MASTER </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Cardholder name : ________________________________________________________________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Credit Card No. : __________________________________ Expiry Date (mm/yy) : ____________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Signature : _______________________________________ Date : _________________________________</td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font> Cheque Payment (Payable to Singapore Press Holdings Limited)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Bank/Cheque No : _________________________________ Amount : ______________________________</td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td>SUB A/C NO  :  {!RecordAccountNumber}</td>
+                    </tr>
+                  
+                  
+                </table>
+            </apex:outputPanel>
+            
+            <div style="page-break-before:always;"/>
+            
+            <table width="100%" border="0" style="font-size:10pt; font-name:Arial" cellspacing="0">
+            
+                <tr>
+                    <td><b><u>A.   TERMS AND CONDITIONS</u></b></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td><b>MODE OF PAYMENT</b></td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  All subscriptions are available on a prepaid basis.</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Payment can be made through:</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  Cheque, Money Order (payment to be drawn in Singapore currency on a local bank), made payable to:</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>“Singapore Press Holdings Limited”</b></td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  Credit Card (Visa/MasterCard)</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subscription is accepted via fax/e-mail for this mode of payment. Please indicate card number and expiry date.</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td><b>CONFIRMATION OF SUBSCRIPTION</b></td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  You will receive an acknowledgement advice upon the confirmation of your subscription.</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td><b>OTHERS</b></td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Subscription rates are inclusive of 7% Goods and Services Tax (GST)</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Subscription rates and administrative charges (if any) are subject to change without prior notice.</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  Please allow 4 to 6 weeks for your subscription to be processed.</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td><b>CONTACT US</b></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                         <table width="100%" border="0" style="font-size:12px; font-name:Arial" cellspacing="0">
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   Tel:   (65) 6388 3838 </td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   Fax:   (65) 6744 4875 / (65) 6744 1646</td>
+                            </tr>
+                
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   Email:   circs@sph.com.sg</td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   Website:   www.sphsubscription.com.sg</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td><b><u>B.   CHANGE OF ADDRESS (IF ANY)</u></b></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+            </table>
+                
+            <table width="100%" border="0" style="font-size:10pt; font-name:Arial" cellspacing="0">
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please send renewal advice to:</td>
+                    <td>Please deliver magazines to: </td>
+                </tr>
+    
+                <tr><td colspan="2">&nbsp;</td></tr>
+    
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name: ______________________________________</td>
+                    <td>Name: ___________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sub A/C No: _________________________________</td>
+                    <td>Sub A/C No: ______________________________</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Address: ____________________________________</td>
+                    <td>Address: _________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________ PC _______________</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;________________ PC _____________</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Country: ____________________________________</td>
+                    <td>Country: _________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Effective date: _______________________________</td>
+                    <td>Effective date: _____________________________</td>
+                </tr>
+                
+                <apex:outputPanel rendered="{!if(Break=='true',true,false)}">    
+                    <div style="page-break-after:always;"/>
+                </apex:outputPanel>
+                
+            </table>
+                   
+                
+           
+            
+            
+        </apex:outputPanel>
+        
+        
+        
+        
+        
+        
+        <apex:outputPanel rendered="{!if(Language=='chinese',true,false)}">
+            
+            <apex:outputPanel rendered="{!if(FirstPageonly==true,true,false)}">
+                <table width="100%" border="0" style="font-family: Arial Unicode MS; font-size:9pt" cellspacing="0">
+                
+                    <tr><td>&nbsp;</td></tr>
+                
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><b>订户将会在杂志发行后的3-5天后收到订阅杂志。</b></td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><b>是的，我要续订以上杂志。</b>(请在以上挂号打勾)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><font style="font-family: Arial Unicode MS;"> &#9744;</font>  付全额 S$__________________.</td>
+                    </tr>
+                    
+                    <tr><td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><b><u>付款方式</u> (请打勾)</b></td>
+                    </tr>
+                    
+                    <!--tr><td>&nbsp;</td></tr-->
+    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><font style="font-family: Arial Unicode MS;"> &#9744;</font> 信用卡付款 :
+                        &nbsp;&nbsp;<font style="font-family: Arial Unicode MS;"> &#9744;</font> VISA             &nbsp;&nbsp;&nbsp;&nbsp;      <font style="font-family: Arial Unicode MS;"> &#9744;</font> MASTER </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp; 信用卡用户姓名：___________________________________________________________________________________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;信用卡号码：_____________________________________________________有效日期至:_____________________（月份/年份)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;签名:____________________________________________________________ 日期:______________________________________</td>
+                    </tr>
+                    
+                    <tr><td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt"><font style="font-family: Arial Unicode MS;"> &#9744;</font> 支票付款（支票收款人“Singapore Press Holdings Limited”)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;银行/ 支票号码：__________________________________________________ 数额 ：___________________________________ </td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td style="font-family: Arial Unicode MS; font-size:9pt">订阅户口号码: {!RecordAccountNumber}</td>
+                    </tr>
+                  
+                  
+                </table>
+            </apex:outputPanel>
+            
+            <div style="page-break-before:always;"/>
+            
+            <table width="100%" border="0" style="font-size:9pt; font-name:Arial" cellspacing="0">
+            
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt"><u>一、   条例</u></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付款方式</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  所有订阅是根据预付方式 </td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  付款可通过以下方式</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  支票、汇票（必须通过本地银行并以新元付款），领款者必须指定为</td>
+                </tr>
+                
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>“Singapore Press Holdings Limited”</b></td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  信用卡（Visa/MasterCard）</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可通过传真/电子邮件订阅。请注明信用卡号码和有效日期</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认订阅程序</b></td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  一旦确认您的订阅，您将收到一份确认通知</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其他</b></td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  订阅标价包括7% 消费税</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  订阅标价以及行政费（如有）的更改将不需预先通知</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  订单处理需4到6个星期</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联络方式</b></td>
+                </tr>
+                
+                <tr>
+                    <td>
+                         <table width="100%" border="0" style="font-size:9pt; font-name:Arial" cellspacing="0">
+                            <tr>
+                                <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   电话：(65) 6388 3838</td>
+                                <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   传真：(65) 6744 4875/ (65) 6744 1646</td>
+                            </tr>
+                
+                            <tr>
+                                <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   电子邮件：circs@sph.com.sg</td>
+                                <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   网址：www.sphsubscription.com.sg</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt"><b><u>二、  更换地址</u></b></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+            </table>
+                
+            <table width="100%" border="0" style="font-size:9pt; font-name:Arial" cellspacing="0">
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请将更新通知单寄到：</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;请将杂志送到：</td>
+                </tr>
+    
+                <tr><td colspan="2">&nbsp;</td></tr>
+    
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订户号码： _________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;订户号码： _________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名： _____________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;姓名： _____________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址： _____________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;地址： _____________________________________</td>
+                </tr>
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_____________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_____________________________________</td>
+                </tr>
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    邮区：______________________________________ </td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;
+                    邮区：______________________________________ </td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国家：______________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:10pt">&nbsp;&nbsp;&nbsp;国家：______________________________________</td>
+                </tr>
+                
+                <tr>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生效日期：__________________________________</td>
+                    <td style="font-family: Arial Unicode MS; font-size:9pt">&nbsp;&nbsp;&nbsp;生效日期：__________________________________</td>
+                </tr>
+                
+                <apex:outputPanel rendered="{!if(Break=='true',true,false)}">    
+                    <div style="page-break-after:always;"/>
+                </apex:outputPanel>
+                
+            </table>
+         
+        </apex:outputPanel>
+
+    </div>
+
+</apex:component>

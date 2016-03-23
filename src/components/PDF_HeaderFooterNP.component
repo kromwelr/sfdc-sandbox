@@ -1,0 +1,502 @@
+<!--@History: UD 2421, 2422, 2423, 2424, 2426, 2463, 2480  08/25/2015 ANavarro K. Tan. - Reconstructed the entire component to change font-size-->
+<!--@History: UD-2872 9/18/2015 Alyana Navarro -->
+<apex:component >
+<apex:attribute name="RecordAccountNumber" type="String" description="TODO: Describe me"/>
+<apex:attribute name="Break" type="String" description="TODO: Describe me"/>
+<apex:attribute name="Language" type="String" description="TODO: Describe me"/>
+<apex:attribute required="true"  type="string" name="type" description="specify header and footer type" />
+<!-- START : D-3007 5/25/2015 Alyana Navarro -->
+<apex:attribute name="FirstPageonly" type="boolean" description="TODO: Describe me"/>
+<!-- END : D-3007 5/25/2015 Alyana Navarro -->
+
+<apex:stylesheet value="{!$Resource.NewsPaperRenewalLetterStyle}"/> 
+
+    <div class="{!type}" style="margin-bottom:1px;">
+        <!--START JLedesma 5/25/2015 D-3006  Revision for Jason Chen's review points -->
+        <apex:outputPanel rendered="{!if(Language=='english',true,false)}">
+            <apex:outputPanel rendered="{!if(FirstPageonly==true,true,false)}">
+                <table width="100%" border="0" style="font-size:10pt; font-name:Arial" cellspacing="0">
+                
+                    <tr>
+                        <td><b>Yes, I wish to renew my subscription/s for another year. (Please tick the above)</b></td>
+                    </tr>
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font>  Monthly payment (applicable only via credit card payment, subscription will remain in force until we receive your termination notification)</td>
+                    </tr>
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font> Full payment at S$______________________. (Please include newspaper delivery fee. Refer to T&amp;C for Delivery Fee)</td>
+                    </tr>
+                    <tr> <td>* Inclusive of newspaper delivery fee / postage fee</td></tr>
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td><b><u>Payment Mode</u> (please tick where applicable)</b></td>
+                    </tr>                                                
+        <!--tr><td>&nbsp;</td></tr-->
+
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font> Credit Card Payment (Please tick where applicable): </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;<font style="font-family: Arial Unicode MS;"> &#9744;</font> VISA             &nbsp;&nbsp;&nbsp;&nbsp;      <font style="font-family: Arial Unicode MS;"> &#9744;</font> MASTER </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Cardholder name : ________________________________________________________________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Credit Card No. : __________________________________ Expiry Date (mm/yy) : ____________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Signature : _______________________________________ Date : _________________________________</td>
+                    </tr>                                              
+                    
+        <tr><td>&nbsp;</td></tr>
+                    <tr>
+                        <td><font style="font-family: Arial Unicode MS;"> &#9744;</font> Cheque Payment (Payable to Singapore Press Holdings Limited)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;Bank/Cheque No : _________________________________ Amount : ______________________________</td>
+                    </tr>
+                    
+                    <tr><td>&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td>SUB A/C NO  :  {!RecordAccountNumber}</td>
+                    </tr>                                       
+                </table>
+                
+            </apex:outputPanel>
+            
+            <div style="page-break-before:always;"/>
+                <br /> <br />                   
+                
+                <br/>
+                <table width="100%" align="left" style="font-size:10pt; font-name:Arial">
+                    <tr>
+                        <td colspan="5"><u><b>A.   TERMS AND CONDITIONS</b></u></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="5"><b>MODE OF PAYMENT</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td colspan="4">All subscriptions are available on a prepaid basis.</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">•  </td>
+                        <td colspan="3">Payment can be made through:</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%">o </td>
+                        <td colspan="">Cheque, Money Order (payment to be drawn in Singapore currency on a local bank), made payable to:</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td colspan=""><b>“Singapore Press Holdings Limited”</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%">o </td>
+                        <td colspan="2">Credit Card (Visa/MasterCard)</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td colspan="2">Subscription is accepted via fax/e-mail for this mode of payment. Please indicate card number and expiry date.</td>
+                    </tr>
+                </table>
+                
+                <br/><br/><br/><br/><br/>
+                <table width="100%" align="left" style="font-size:10pt; font-name:Arial">
+                    <tr><td> </td></tr>
+                    <tr><td> </td></tr>
+                    <tr>
+                        <td colspan="3"><b>CONFIRMATION OF SUBSCRIPTION</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td>You will receive an acknowledgement advice upon the confirmation of your subscription.</td>
+                    </tr>
+                </table>
+                <br/><br/><br/><br/><br/><br/>
+                <table width="100%" align="left" style="font-size:10pt; font-name:Arial">
+                    <tr><td> </td></tr>
+                    <tr><td> </td></tr>
+                    <tr>
+                        <td colspan="3"><b>DELIVERY FEE</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td>Subscription rates exclude delivery fee. The monthly delivery fee, dependent on house type, is payable as follows:</td>
+                    </tr>
+                    <tr>
+                    <td></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td>    $3 – HDB ($36 per annum)</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td>    $4 – Private apartments, walk-up apartments, factories and offices ($48 per annum)</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%"> </td>
+                        <td>    $5 – Landed properties ($60 per annum)</td>
+                    </tr>
+
+                </table>
+                
+                
+                <br/><br/><br/><br/><br/>
+                <table width="100%" align="left" style="font-size:10pt; font-name:Arial">
+                    <tr>
+                        <td colspan="3"><b>OTHERS</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td>Subscription rates are inclusive of 7% Goods and Services Tax (GST)</td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td >Subscription rates and administrative charges (if any) are subject to change without prior notice.</td>
+                    </tr>
+
+                </table>
+                <br/><br/><br/><br/>
+                <table width="100%" align="left" style="font-size:10pt; font-name:Arial">
+                    <tr>
+                        <td colspan="3"><b>CONTACT US</b></td>
+                    </tr>
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td width="">Tel:   (65) 6388 3838 </td>
+                        <td width="15%"> </td>
+                        <td width="3%">• </td>
+                        <td width="">Fax:   (65) 6744 4875 / (65) 6744 1646</td>
+                    </tr>
+        
+                    <tr>
+                        <td width="3%"> </td>
+                        <td width="3%">• </td>
+                        <td width="">Email:   circs@sph.com.sg</td>
+                        <td width="15%"> </td>
+                        <td width="3%">• </td>
+                        <td width="">Website:   www.sphsubscription.com.sg</td>
+                    </tr>
+                </table>
+                
+                <br/><br/><br/><br/>                      
+                
+                <table width="100%" style="font-size:10pt; font-name:Arial">
+                    <tr>
+                        <td colspan="3"><u><b>B.   CHANGE OF ADDRESS (IF ANY)</b></u></td>
+                    </tr>
+                    <tr>
+                        <td ></td>
+                    </tr>
+                    <tr>
+                        <td ></td>
+                    </tr>
+                    <tr>
+                        <td width="2.5%"></td>
+                        <td width="32%" align="left">
+                            Please send renewal advice to: 
+                            <br/><br/> Name: ___________________________________
+                            <br/>Sub A/C No: ______________________________
+                            <br/>Address: _________________________________
+                            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___________ PC ___________________
+                            <br/>Country: _________________________________                 
+                            <br/>Effective date: ____________________________
+                        </td>
+                        
+                        <td width="32%" valign="left">
+                            Please send renewal advice to: 
+                            <br/><br/> Name: ___________________________________
+                            <br/>Sub A/C No: ______________________________
+                            <br/>Address: _________________________________
+                            <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___________ PC ___________________
+                            <br/>Country: _________________________________                 
+                            <br/>Effective date: ____________________________
+                        </td>
+                    </tr>           
+                </table>
+                
+                <apex:outputPanel rendered="{!if(Break=='true',true,false)}">    
+                    <div style="page-break-before:always;"/>
+                </apex:outputPanel>
+            
+        </apex:outputPanel>
+        
+        
+        <apex:outputPanel rendered="{!if(Language=='chinese',true,false)}">
+            <apex:outputPanel rendered="{!if(FirstPageonly==true,true,false)}">
+                <table width="100%" border="0" style="font-size:12px; font-name:Arial" cellspacing="0">
+                    <tr>                    
+                        <td align="left" class="a">
+                            是的，我要续订以上报 刊 一 年。(请在以上挂号打勾)
+                        </td>                   
+                    </tr>
+                    
+                    <tr>
+                        <td class="a"><font style="font-family: Arial Unicode MS;"> &#9744;</font> 按月以信用卡付款（您的订阅将持续有效，如果要取消订阅，请书面通知我们）</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="a"><font style="font-family: Arial Unicode MS;"> &#9744;</font>  付全额 S$__________________ (请包括Newspaper Delivery Fee。有关Newspaper Delivery Fee 请查阅条例)</td>
+                    </tr>  
+                    
+                    <!-- START : UD-2426 10/27/2015 Alyana Navarro -->
+                    <tr>
+                        <td class="a">*包括派送费 / 邮费</td>
+                    </tr> 
+                    <!-- END : UD-2426 10/27/2015 Alyana Navarro -->
+                    
+                    <tr>
+                        <td class="a">付款方式 (请打勾)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="a"><font style="font-family: Arial Unicode MS;"> &#9744;</font> 信用卡付款 ： &nbsp;&nbsp; <font style="font-family: Arial Unicode MS;"> &#9744;</font> VISA   &nbsp;&nbsp;&nbsp;&nbsp;    <font style="font-family: Arial Unicode MS;"> &#9744;</font> MASTERCARD</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="a">&nbsp;&nbsp; 信用卡用户姓名：__________________________________________________________________________________________</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="a">&nbsp;&nbsp;&nbsp;信用卡号码：__________________________________________________有效日期至:_______________________（月份/年份)</td>
+                    </tr>
+                    <tr>
+                        <td class="a">&nbsp;&nbsp;&nbsp;签名:____________________________________________________________ 日期:_____________________________________</td>
+                    </tr>
+                    
+                    <tr><td class="a">&nbsp;</td></tr>
+                    
+                    <tr>
+                        <td class="a"><font style="font-family: Arial Unicode MS;"> &#9744;</font> 支票付款（支票收款人“Singapore Press Holdings Limited”)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="a">&nbsp;&nbsp;&nbsp;银行/ 支票号码：__________________________________________________ 数额 ：___________________________________ </td>
+                    </tr>
+                    
+                    <!--tr><td>&nbsp;</td></tr START-END : UD-2946 9/28/2015 Alyana Navarro - Remove-->
+                    
+                    <tr>
+                        <td class="a" style="font: bold">订阅户口号码: {!RecordAccountNumber}</td>            
+                    </tr>     
+                           
+                </table>
+            </apex:outputPanel>            
+            <div style="page-break-before:always;"/>            
+            <br/><br/>
+            <table width="100%" border="0" style="font-size:12px; font-name:Arial" cellspacing="0">
+            
+                <tr>
+                    <td class="a"><u>一、   条例</u></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+            
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;付款方式</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  所有订阅是根据预付方式</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  付款可通过以下方式：</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  支票、汇票（必须通过本地银行并以新元付款），领款者必须指定为
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“Singapore Press Holdings Limited”</b></td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o  信用卡（Visa/MasterCard）
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="a"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可通过传真/电子邮件订阅。请注明信用卡号码和有效日期</b></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;确认订阅程序</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•  一旦确认您的订阅，您将收到一份确认通知</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;派送费 (Newspaper Delivery Fee)</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•   订阅费用不包括派送费。每月的派送费根据以下房子类型：</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$3 – 政府组屋（年费为 $36）</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$4 – 私人公寓、工厂和办公室（年费为 $48）</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$5 – 私人地产（年费为 $60）</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;其它</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 订阅费用包括7%消费税</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 订阅费用和任何行政费用可在未受通知下更改</td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联络方式</td>
+                </tr>
+                
+                <tr>
+                    <td class="a">
+                        <table width="100%" border="0" style="font-size:12px; font-name:Arial" cellspacing="0">
+                        
+                            <tr>
+                                <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 电话：(65) 6388 3838</td> 
+                                <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 传真：(65) 6744 4875/ (65) 6744 1646</td>
+                            </tr>
+                            <tr>
+                                <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 电子邮件：circs@sph.com.sg</td>
+                                <td class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;• 网址：www.sphsubscription.com.sg</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a"><u>二、  更换地址</u></td>
+                </tr>
+                
+                <tr><td>&nbsp;</td></tr>
+                
+                <tr>
+                    <td class="a">
+                        <table width="100%" border="0" style="font-size:12px; font-name:Arial" cellspacing="0">
+                        
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请将更新通知单寄到：</td> 
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;请将报纸送到：</td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan = "2"> &nbsp; </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订户号码：______________________</td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;订户号码：______________________</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：__________________________</td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;姓名：__________________________</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：__________________________</td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;地址：__________________________</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________</td>
+                                <td class="a" width="50%"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________</td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮区：__________________________ </td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;邮区：__________________________ </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;国家：__________________________ </td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;国家：__________________________ </td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生效日期：______________________ </td>
+                                <td class="a" width="50%">&nbsp;&nbsp;&nbsp;生效日期：______________________ </td>
+                            </tr>
+                            
+                        </table>
+                    </td>
+                </tr>
+                
+                
+            </table>
+            
+            <apex:outputPanel rendered="{!if(Break=='true',true,false)}">    
+                <div style="page-break-before:always;"/>
+            </apex:outputPanel>
+            
+        </apex:outputPanel>
+        <!--END JLedesma 5/25/2015 D-3006  Revision for Jason Chen's review points -->
+    </div>
+
+</apex:component>
