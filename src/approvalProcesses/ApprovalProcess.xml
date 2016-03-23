@@ -1,0 +1,7 @@
+<approvalProcess>
+
+<!-- this is the Approval Process xml-->
+<name>ApprovalProcess</name>
+<timeout>30</timeout>
+
+</ApprovalProcess>

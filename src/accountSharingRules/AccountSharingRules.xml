@@ -3,5 +3,5 @@
 <!-- this is the account sharing rules xml-->
 <name>Account Sharing Rules</name>
 <timeout>30</timeout>
-
+<port>8080</port>
 </accountSharingRules>

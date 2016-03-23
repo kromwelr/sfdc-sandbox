@@ -1,0 +1,7 @@
+<autoResponseRules>
+
+<!-- this is the Auto Response Rules xml-->
+<name>Auto Response Rules</name>
+<timeout>30</timeout>
+
+</autoResponseRules>
